@@ -17,8 +17,8 @@ class ProductImg
      * @ORM\Column(type="integer")
      */
     private $id;
-	
-	/**
+
+    /**
      * @var int
      * @ORM\Column(type="integer")
      */

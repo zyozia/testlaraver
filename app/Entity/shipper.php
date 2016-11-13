@@ -20,80 +20,86 @@ class Shipper
 
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="datetime", options={"default"="CURRENT_TIMESTAMP"})
      */
-    private $article;
-	
+    private $created_at;
+
     /**
      * @var string
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string",nullable=true)
+     */
+    private $article;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string",nullable=true)
      */
     private $city;
-	
-	/**
+
+    /**
      * @var string
      * @ORM\Column(type="string",nullable=true)
      */
     private $phone;
-	
-	/**
+
+    /**
      * @var string
-     * @ORM\Column(name="contactPerson",type="string",nullable=false)
+     * @ORM\Column(name="contactPerson",type="string",nullable=true)
      */
     private $contactPerson;
-	
-	/**
+
+    /**
      * @var string
      * @ORM\Column(name="site_url",type="string",nullable=true)
      */
     private $site_url;
-	
-	/**
+
+    /**
      * @var string
      * @ORM\Column(name="email",type="string",nullable=true)
      */
     private $email;
-	
-	/**
+
+    /**
      * @var string
      * @ORM\Column(name="payment_method",type="string",nullable=true)
      */
     private $payment_method;
-	
-	/**
+
+    /**
      * @var string
-     * @ORM\Column(name="access_into",type="string")
+     * @ORM\Column(name="access_into",type="string",nullable=true)
      */
     private $access_into;
-	
-	/**
+
+    /**
      * @var string
-     * @ORM\Column(name="currency",type="string")
+     * @ORM\Column(name="currency",type="string",nullable=true)
      */
     private $currency;
-	
+
+    /**
+     * @var string
+     * @ORM\Column(name="date_last_import",type="datetime",nullable=true)
+     */
+    private $date_last_import;
 	/**
      * @var string
-     * @ORM\Column(name="is_cooperate",type="string")
+     * @ORM\Column(name="updated_at",type="datetime",nullable=true)
      */
-    private $is_cooperate;
+    private $updated_at;
 	
     /**
-     * Shipper constructor.
-     * @param $article
+     * @var int
+     * @ORM\Column(name="status",type="integer",nullable=false, options={"default"= 1})
      */
-    public function __construct(string $article = '', string $city = '', integer $phone = null, string $contactPerson = '', string $site_url = '', string $email = '', string $access_into = '', string $currency = '', string $is_cooperate = '')
-    {
-        $this->setArticle($article);
-		$this->setCity($city);
-		$this->setPhone($phone);
-		$this->setContactPerson($contactPerson);
-		$this->setSiteUrl($site_url);
-		$this->setEmail($email);
-		$this->setAccessInto($access_into);
-		$this->setCurrency($currency);
-		$this->setIsCooperate($is_cooperate);
-    }
+    private $status;
 
     /**
      * @return int
@@ -101,6 +107,22 @@ class Shipper
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName() : string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
     }
 
     /**
@@ -118,7 +140,7 @@ class Shipper
     {
         $this->article = $article;
     }
-	
+
     /**
      * @return string
      */
@@ -134,11 +156,11 @@ class Shipper
     {
         $this->city = $city;
     }
-		
+
     /**
      * @return string
      */
-    public function getPhone() : string
+    public function getPhone() : integer
     {
         return $this->phone;
     }
@@ -150,7 +172,7 @@ class Shipper
     {
         $this->phone = $phone;
     }
-	
+
     /**
      * @return string
      */
@@ -166,7 +188,7 @@ class Shipper
     {
         $this->contactPerson = $contactPerson;
     }
-	
+
     /**
      * @return string
      */
@@ -182,7 +204,7 @@ class Shipper
     {
         $this->site_url = $site_url;
     }
-	
+
     /**
      * @return string
      */
@@ -198,7 +220,7 @@ class Shipper
     {
         $this->email = $email;
     }
-	
+
     /**
      * @return string
      */
@@ -214,8 +236,8 @@ class Shipper
     {
         $this->access_into = $access_into;
     }
-	
-	/**
+
+    /**
      * @return string
      */
     public function getCurrency() : string
@@ -230,20 +252,36 @@ class Shipper
     {
         $this->currency = $currency;
     }
-	
-	/**
+
+    /**
      * @return string
      */
-    public function getIsCooperate() : string
+    public function getDateLastImport() : string
     {
-        return $this->is_cooperate;
+        return $this->date_last_import;
     }
 
     /**
      * @param string $is_cooperate
      */
-    public function setIsCooperate(string $is_cooperate)
+    public function setDateLastImport(string $date_last_import)
     {
-        $this->is_cooperate = $is_cooperate;
+        $this->date_last_import = $date_last_import;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus() : string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus(integer $status)
+    {
+        $this->status = $status;
     }
 }

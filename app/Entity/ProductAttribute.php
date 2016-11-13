@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="product_at_attribute")
+ * @ORM\Table(name="product_attribute")
  */
-class ProductAtAttribute
+class ProductAttribute
 {
     /**
      * @var int
@@ -29,13 +29,13 @@ class ProductAtAttribute
      * @ORM\Column(type="string")
      */
     private $name;
-	
+
     /**
      * @var string
      * @ORM\Column(type="string")
      */
     private $value;
-	 
+
 	/**
      * @return int
      */
@@ -43,7 +43,7 @@ class ProductAtAttribute
     {
         return $this->id;
     }
-	 
+
 	/**
      * @return string
      */
@@ -51,7 +51,7 @@ class ProductAtAttribute
     {
         return $this->product_id;
     }
-	
+
 	/**
      * @return string
      */
@@ -59,7 +59,7 @@ class ProductAtAttribute
     {
         return $this->name;
     }
-	
+
 	/**
      * @return string
      */
@@ -75,7 +75,7 @@ class ProductAtAttribute
     {
         $this->product_id = $product_id;
     }
-	
+
     /**
      * @param string $name
      */
@@ -83,7 +83,7 @@ class ProductAtAttribute
     {
         $this->name = $name;
     }
-	
+
     /**
      * @param string $value
      */

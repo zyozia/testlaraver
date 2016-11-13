@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Category")
+ * @ORM\Table(name="category")
  */
 class Category
 {
@@ -17,26 +17,26 @@ class Category
      * @ORM\Column(type="integer")
      */
     private $id;
-	
+
 	/**
      * @var integer
-     * @ORM\Column(name="parent_id",type="integer",nullable=false)
+     * @ORM\Column(name="parent_id",type="integer")
      */
     private $parent_id;
-	
+
 	/**
      * @var string
      * @ORM\Column(type="string",nullable=false)
      */
     private $name;
-	
+
 	/**
      * @var int
      * @ORM\Column(type="integer",nullable=false)
      */
     private $tecdoc_id; // TD ART_CAT - + method(type):type
-	
-	
+
+
 	/**
      * @return int
      */
@@ -44,7 +44,7 @@ class Category
     {
         return $this->id;
     }
-	
+
 	/**
      * @return int
      */
@@ -52,7 +52,7 @@ class Category
     {
         return $this->parent_id;
     }
-	
+
 	/**
      * @return string
      */
@@ -60,7 +60,7 @@ class Category
     {
         return $this->name;
     }
-	
+
 	/**
      * @return string
      */
@@ -76,7 +76,7 @@ class Category
     {
         $this->parent_id = $parent_id;
     }
-	
+
     /**
      * @param string $name
      */
@@ -84,7 +84,7 @@ class Category
     {
         $this->name = $name;
     }
-	
+
     /**
      * @param ineger $tecdoc_id
      */
@@ -92,5 +92,5 @@ class Category
     {
         $this->tecdoc_id = $tecdoc_id;
     }
-		
+
 }

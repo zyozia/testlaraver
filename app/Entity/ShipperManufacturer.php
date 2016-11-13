@@ -17,20 +17,20 @@ class ShipperManufacturer
      * @ORM\Column(type="integer")
      */
     private $id;
-	
+
 	/**
      * @var int
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer",nullable=false)
      */
-    private $shipper_id; // fk shipper - id
-	
+    private $shipper_id;
+
 	/**
      * @var int
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer",nullable=false)
      */
-    private $manufacturer_id; // fk manufacturer - id
-	
-	
+    private $manufacturer_id;
+
+
     /**
      * @return int
      */
@@ -46,7 +46,7 @@ class ShipperManufacturer
     {
         return $this->shipper_id;
     }
-	
+
 	/**
      * @return int
      */
@@ -54,7 +54,7 @@ class ShipperManufacturer
     {
         return $this->manufacturer_id;
     }
-	
+
     /**
      * @param int $shipper_id
      */
